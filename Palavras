@@ -1,0 +1,73 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+let letterColors = [];
+let yOffset = [];
+let angle = 0;
+let angleSpeed = 0.05;
+
+function setup() {
+  createCanvas(400, 200);
+  textFont('Arial');
+  for (let i = 0; i < 6; i++) {
+    letterColors[i] = color(random(255), random(255), random(255));
+    yOffset[i] = random(-20, 20);
+  }
+}
+
+function draw() {
+  background(0);
+  textSize(48);
+  textAlign(CENTER, CENTER);
+  for (let i = 0; i < 6; i++) {
+    fill(letterColors[i]);
+    let x = width / 2 + (i - 2.5) * 40;
+    let y = height / 2 + yOffset[i] + sin(angle + i) * 10;
+    text("Daniel"[i], x, y);
+  }
+  angle += angleSpeed;
+}
+
+function mousePressed() {
+  for (let i = 0; i < 6; i++) {
+    letterColors[i] = color(random(255), random(255), random(255));
+    yOffset[i] = random(-20, 20);
+  }
+}
+let bgColor;
+
+function setup() {
+  createCanvas(400, 200);
+  textFont('Arial');
+  bgColor = color(random(255), random(255), random(255));
+  for (let i = 0; i < 6; i++) {
+    letterColors[i] = color(random(255), random(255), random(255));
+    yOffset[i] = random(-20, 20);
+  }
+}
+
+function draw() {
+  background(bgColor);
+  textSize(48);
+  textAlign(CENTER, CENTER);
+  for (let i = 0; i < 6; i++) {
+    fill(letterColors[i]);
+    let x = width / 2 + (i - 2.5) * 40;
+    let y = height / 2 + yOffset[i] + sin(angle + i) * 10;
+    text("Daniel"[i], x, y);
+  }
+  angle += angleSpeed;
+}
+
+function mousePressed() {
+  bgColor = color(random(255), random(255), random(255));
+  for (let i = 0; i < 6; i++) {
+    letterColors[i] = color(random(255), random(255), random(255));
+    yOffset[i] = random(-20, 20);
+  }
+}
+
